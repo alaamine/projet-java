@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const apiKey = '70c7e1'; // Remplacez par votre clé API OMDb
+    const apiKey = '70c7e1';
     const searchInput = document.getElementById('search-input');
     const searchResults = document.getElementById('search-results');
     const loadMoreBtn = document.getElementById('load-more-btn');
@@ -35,25 +35,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Gestion de la saisie avec délai
+    
     searchInput.addEventListener('input', () => {
         clearTimeout(debounceTimeout);
 
         debounceTimeout = setTimeout(() => {
             searchQuery = searchInput.value.trim();
 
-            // Vérifier que la recherche a au moins 3 caractères
+           
             if (searchQuery.length >= 3) {
-                searchResults.innerHTML = ''; // Réinitialiser les résultats
-                currentPage = 1; // Réinitialiser la page
-                searchFilms(searchQuery); // Lancer la recherche
+                searchResults.innerHTML = ''; 
+                currentPage = 1; 
+                searchFilms(searchQuery); 
             } else {
-                searchResults.innerHTML = ''; // Effacer les résultats si la saisie est trop courte
+                searchResults.innerHTML = ''; 
             }
-        }, 300); // Délai de 300ms
+        }, 300); 
     });
 
-    // Charger plus de films lorsque l'utilisateur clique sur "Charger plus"
+    
     loadMoreBtn.addEventListener('click', () => {
         if (searchQuery.length >= 3) {
             searchFilms(searchQuery, currentPage);
